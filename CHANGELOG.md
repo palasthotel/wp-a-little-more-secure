@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.1](https://github.com/palasthotel/wp-a-little-more-secure/compare/v1.1.0...v1.1.1) (2026-10-01)
+
+
+### Bug Fixes
+
+* change plugin author and tested wp version ([cc62934](https://github.com/palasthotel/wp-a-little-more-secure/commit/cc629349b56de7611406d12ca07982086bd27e16))
+* change plugin author and tested wp version ([f2948df](https://github.com/palasthotel/wp-a-little-more-secure/commit/f2948dfadabcf9afc9c0188ce57889588c574699))
+* resolve symlinks when copying the payload into SVN ([0b7f0a2](https://github.com/palasthotel/wp-a-little-more-secure/commit/0b7f0a2882527f4b89901836f5474e7e3eb85eaa))
+* resolve symlinks when copying the payload into SVN ([51a9b4d](https://github.com/palasthotel/wp-a-little-more-secure/commit/51a9b4d339513539b05a237eb6d6f041c94dd1ef))
+
 ## [1.1.0](https://github.com/palasthotel/a-little-more-secure/compare/v1.0.4...v1.1.0) (2026-08-03)
 
 
