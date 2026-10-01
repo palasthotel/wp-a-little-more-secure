@@ -2,16 +2,16 @@
 
 /**
  * Plugin Name: A little more secure
- * Plugin URI: https://github.com/palasthotel/a-little-more-secure
+ * Plugin URI: https://github.com/palasthotel/wp-a-little-more-secure
  * Description: Stop bots from brute force hacking your wp-login.php
  * Version: 1.1.0
- * Author: Palasthotel <edward.bock@palasthotel.de>
+ * Author: Palasthotel <webmaster@palasthotel.de>
  * Author URI: https://palasthotel.de
  * Text Domain: a-little-more-secure
  * Domain Path: /languages
  * Requires at least: 5.0
  * Requires PHP: 8.2
- * Tested up to: 7.0.2
+ * Tested up to: 7.1.2
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  *

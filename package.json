@@ -2,7 +2,7 @@
 	"name": "a-little-more-secure",
 	"private": true,
 	"description": "Development tooling for the A little more secure WordPress plugin. The plugin itself lives in public/.",
-	"homepage": "https://github.com/palasthotel/a-little-more-secure",
+	"homepage": "https://github.com/palasthotel/wp-a-little-more-secure",
 	"license": "GPL-3.0-or-later",
 	"author": {
 		"name": "Edward Bock",
