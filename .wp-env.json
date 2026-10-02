@@ -1,6 +1,0 @@
-{
-	"phpVersion": "8.2",
-	"plugins": [
-		"./public"
-	]
-}
