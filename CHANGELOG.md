@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/palasthotel/wp-a-little-more-secure/compare/v1.1.1...v1.1.2) (2026-10-02)
+
+
+### Bug Fixes
+
+* load the bundled translations again ([6aae1ec](https://github.com/palasthotel/wp-a-little-more-secure/commit/6aae1ec5120eade3055e9eca8bc3261e852a4cac))
+
 ## [1.1.1](https://github.com/palasthotel/wp-a-little-more-secure/compare/v1.1.0...v1.1.1) (2026-10-01)
 
 
