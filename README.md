@@ -33,7 +33,7 @@ plugin does not degrade, it fails.
 ## Installation
 
 Install *A little more secure* from the WordPress plugin directory, or download
-`a-little-more-secure.zip` from the [latest release](https://github.com/palasthotel/a-little-more-secure/releases/latest)
+`a-little-more-secure.zip` from the [latest release](https://github.com/palasthotel/wp-a-little-more-secure/releases/latest)
 and extract it into `wp-content/plugins/`.
 
 There is nothing to configure. Activating the plugin is enough.
@@ -126,7 +126,7 @@ during the countdown. And watch page caching: `login_form_bottom` is part of
 means logins rejected until the cache refreshes.
 
 For the same reason the plugin does not ship this behaviour itself — see
-[issue #3](https://github.com/palasthotel/a-little-more-secure/issues/3).
+[issue #3](https://github.com/palasthotel/wp-a-little-more-secure/issues/3).
 
 ## Repository layout
 
@@ -146,8 +146,8 @@ repository-only.
 | `assets/` | media for the WordPress.org plugin page — not part of the download |
 | `a-little-more-secure.php` | DEV wrapper, loads `public/` when the repository is checked out into `wp-content/plugins/` |
 | `LICENSE` | copy of the licence text so GitHub detects it |
-| `bin/` | release helper scripts |
-| `.github/workflows/` | CI/CD — see [.github/WORKFLOWS.md](.github/WORKFLOWS.md) |
+| `version.txt` | the version, maintained by release-please |
+| `.github/workflows/` | CI/CD, calling the shared workflows — see [.github/WORKFLOWS.md](.github/WORKFLOWS.md) |
 
 ### `assets/`
 
@@ -177,15 +177,21 @@ merge PR to main → release-please opens "chore(main): release x.y.z"
                  → merge it → tag vx.y.z → deploy to WordPress.org
 ```
 
-The full pipeline, including the required secrets, is documented in
-[.github/WORKFLOWS.md](.github/WORKFLOWS.md). See [CONTRIBUTING.md](CONTRIBUTING.md)
+The workflows call the shared ones in
+[palasthotel/github-workflows](https://github.com/palasthotel/github-workflows); what is
+specific to this plugin is in [.github/WORKFLOWS.md](.github/WORKFLOWS.md). See [CONTRIBUTING.md](CONTRIBUTING.md)
 for the commit conventions and the local setup.
 
 ## Building locally
 
 ```sh
-bash bin/pack.sh    # → a-little-more-secure.zip
+npm run pack    # → build/a-little-more-secure/ and a-little-more-secure.zip
 ```
+
+This runs the shared `pack.sh` from
+[palasthotel/github-workflows](https://github.com/palasthotel/github-workflows), which has
+to be checked out next to this repository. It needs `composer` on PHP 8.2 or newer, because
+it regenerates the autoloader in the payload.
 
 ## License
 
