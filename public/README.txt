@@ -5,7 +5,7 @@ Tags: security
 Requires at least: 5.0
 Requires PHP: 8.2
 Tested up to: 7.1.2
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -167,6 +167,10 @@ limiting.
 2. Your login is a little bit more secure
 
 == Changelog ==
+
+= 1.1.2 =
+**Bug Fixes**
+* load the bundled translations again (6aae1ec)
 
 = 1.1.1 =
 **Bug Fixes**
