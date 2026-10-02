@@ -69,9 +69,11 @@ tested-up-to) are of course done by hand; just leave `Stable tag:` and the
 
 ## Local development
 
+There is nothing to build or install. wp-env runs without a configuration file and
+mounts the repository as the plugin:
+
 ```sh
-npm install
-npm run wp-env start     # WordPress with public/ mounted as the plugin
+npx @wordpress/env start      # http://localhost:8888, admin / password
 ```
 
 To test the repository itself as a plugin, symlink or copy the repository root
@@ -82,12 +84,19 @@ activation hooks against the file WordPress actually knows about. It carries
 `X.X.X` as its version so it is obvious in the plugin list that this entry is
 never released.
 
-`bin/pack.sh` builds `a-little-more-secure.zip` from `public/`, which is exactly
-what the release deploys.
+`npm run pack` stages the payload in `build/a-little-more-secure/` and zips it to
+`a-little-more-secure.zip` — the same payload the release deploys. It runs the shared
+script from [palasthotel/github-workflows](https://github.com/palasthotel/github-workflows),
+which has to be checked out next to this repository.
+
+The main file `public/a-little-more-secure.php` must keep its name. WordPress identifies an
+installed plugin by `<directory>/<main file>` and stores that pair in `active_plugins`;
+renaming it deactivates the plugin on every site at the next update.
 
 ## Checks
 
-Every PR runs `php -l` against PHP 8.2, 8.3 and 8.4 and runs `bin/pack.sh`. The
+Every PR runs `php -l` against PHP 8.2, 8.3 and 8.4, packs the plugin and checks the
+payload, and checks the version carriers agree. The
 plugin declares `Requires PHP: 8.2` and `Requires at least: 5.0` (WordPress).
 The PHP floor comes from `public/composer.json` (`php ~8.2`), whose generated
 `vendor/composer/platform_check.php` turns anything older into a fatal error —

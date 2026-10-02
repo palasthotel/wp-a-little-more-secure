@@ -77,7 +77,7 @@ abstract class Plugin {
             load_plugin_textdomain(
                 $domain,
                 false,
-                dirname(plugin_basename($this->ref->getFileName())) . "Plugin.php/" . $relativeLanguagesPath
+                dirname( plugin_basename( $this->ref->getFileName() ) ) . "/" . $relativeLanguagesPath
             );
         } );
     }
