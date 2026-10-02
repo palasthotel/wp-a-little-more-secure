@@ -65,16 +65,16 @@ class Gate extends Component {
 
 			// ------ wait for secure login ---
 			echo "<div id='wait-for-secure-login'>";
-			printf( "<p>%s</p>", __( "Securing login...", 'a-little-more-secure' ) );
+			printf( "<p>%s</p>", esc_html__( "Securing login...", 'a-little-more-secure' ) );
 			$text = sprintf(
-				__( "%s seconds left", 'a-little-more-secure' ),
-				"<span id='wait-for-secure-login__seconds'>$waitForSeconds</span>"
+				esc_html__( "%s seconds left", 'a-little-more-secure' ),
+				"<span id='wait-for-secure-login__seconds'>" . (int) $waitForSeconds . "</span>"
 			);
 			echo "<p><i>$text</i></p>";
 			echo "</div>";
 
 			// ------ redirect to login ---
-			printf( "<div id='redirect-to-secure-login'>%s</div>", __( "Redirect to secure login...", 'a-little-more-secure' ) );
+			printf( "<div id='redirect-to-secure-login'>%s</div>", esc_html__( "Redirect to secure login...", 'a-little-more-secure' ) );
 
 			// --- END
 			echo "</div>";
@@ -152,7 +152,7 @@ class Gate extends Component {
 				}
 			</style>
 			<?php
-			printf( "<p id='secure-login-info'>🔒 %s</p>", __( "Your login is a little more secure.", 'a-little-more-secure' ) );
+			printf( "<p id='secure-login-info'>🔒 %s</p>", esc_html__( "Your login is a little more secure.", 'a-little-more-secure' ) );
 			$this->nonceField();
 		}
 	}
@@ -173,11 +173,11 @@ class Gate extends Component {
 
 		if ( ! wp_verify_nonce( $nonce, Plugin::NONCE_ACTION ) ) {
 			wp_die(
-				__( "Sorry, this feels not very secure.", 'a-little-more-secure' ),
-				__( "🔒", 'a-little-more-secure' ),
+				esc_html__( "Sorry, this feels not very secure.", 'a-little-more-secure' ),
+				esc_html__( "🔒", 'a-little-more-secure' ),
 				[
 					"response" => 400,
-					"link_text" => __("Goto login form", 'a-little-more-secure'),
+					"link_text" => esc_html__( "Goto login form", 'a-little-more-secure' ),
 					"link_url" => wp_login_url(),
 				]
 			);
