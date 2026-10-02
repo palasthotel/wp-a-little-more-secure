@@ -9,33 +9,15 @@ permissions:
   contents: read
 
 jobs:
-  php-lint:
-    name: PHP syntax check (${{ matrix.php-version }})
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        # public/composer.json requires php ~8.2, and the plugin header declares
-        # Requires PHP: 8.2 — anything older fails the composer platform check.
-        php-version: ["8.2", "8.3", "8.4"]
-    steps:
-      - uses: actions/checkout@v6
-
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-version }}
-          coverage: none
-
-      - name: Lint PHP files
-        run: |
-          find . -path ./public/vendor -prune -o -path ./build -prune -o -name '*.php' -print0 \
-            | xargs -0 -r -n1 php -l
-
-  pack:
-    name: Pack plugin
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Pack
-        run: bash bin/pack.sh
+  checks:
+    uses: palasthotel/github-workflows/.github/workflows/wp-plugin-pr.yml@v1
+    with:
+      slug: a-little-more-secure
+      dev-plugin-name: A little more secure - DEV
+      # public/composer.json requires php ~8.2 and the header says Requires PHP: 8.2
+      php-versions: '["8.2", "8.3", "8.4"]'
+      php-version: "8.2"
+      required-files: |
+        vendor/autoload.php
+        languages/a-little-more-secure.pot
+        languages/a-little-more-secure-de_DE.mo
