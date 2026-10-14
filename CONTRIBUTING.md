@@ -99,7 +99,7 @@ renaming it deactivates the plugin on every site at the next update.
 
 ## Checks
 
-Every PR runs `php -l` against PHP 8.2, 8.3 and 8.4, packs the plugin and checks the
+Every PR runs `php -l` against PHP 8.2 to 8.5, packs the plugin and checks the
 payload, and checks the version carriers agree. The
 plugin declares `Requires PHP: 8.2` and `Requires at least: 5.0` (WordPress).
 The PHP floor comes from `public/composer.json` (`php ~8.2`), whose generated

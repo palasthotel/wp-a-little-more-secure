@@ -15,7 +15,7 @@ jobs:
       slug: a-little-more-secure
       dev-plugin-name: A little more secure - DEV
       # public/composer.json requires php ~8.2 and the header says Requires PHP: 8.2
-      php-versions: '["8.2", "8.3", "8.4"]'
+      php-versions: '["8.2", "8.3", "8.4", "8.5"]'
       php-version: "8.2"
       required-files: |
         vendor/autoload.php
