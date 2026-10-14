@@ -67,6 +67,10 @@ Content changes to `public/README.txt` (description, FAQ, screenshots,
 tested-up-to) are of course done by hand; just leave `Stable tag:` and the
 `== Changelog ==` entries alone.
 
+`Tested up to:` appears in the readme only, never in the plugin header, and only as
+major.minor - `7.1`, not `7.1.2`. wordpress.org compares no more than that, and its
+submission scan rejects a patch number.
+
 ## Local development
 
 There is nothing to build or install. wp-env runs without a configuration file and

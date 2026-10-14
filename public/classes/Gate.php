@@ -59,18 +59,18 @@ class Gate extends Component {
 			if ( WP_DEBUG ) {
 				echo "<!-- START secure login -->";
 			}
-			$img = esc_url( get_admin_url() . 'images/spinner.gif' );
 			// --- START
-			echo "<div id='secure-login-wrapper'><img src='$img' alt='' />";
+			printf( "<div id='secure-login-wrapper'><img src='%s' alt='' />", esc_url( get_admin_url() . 'images/spinner.gif' ) );
 
 			// ------ wait for secure login ---
 			echo "<div id='wait-for-secure-login'>";
 			printf( "<p>%s</p>", esc_html__( "Securing login...", 'a-little-more-secure' ) );
 			$text = sprintf(
+				/* translators: %s: number of seconds, wrapped in a span that counts down */
 				esc_html__( "%s seconds left", 'a-little-more-secure' ),
 				"<span id='wait-for-secure-login__seconds'>" . (int) $waitForSeconds . "</span>"
 			);
-			echo "<p><i>$text</i></p>";
+			printf( "<p><i>%s</i></p>", wp_kses( $text, [ 'span' => [ 'id' => true ] ] ) );
 			echo "</div>";
 
 			// ------ redirect to login ---
@@ -112,8 +112,8 @@ class Gate extends Component {
 			<script>
 				// Both values come from filters a site can override, so they are
 				// encoded instead of pasted into the JavaScript source.
-				const waitForSeconds = <?= (int) $waitForSeconds ?>;
-				const paramName = <?= wp_json_encode( $paramName ) ?>;
+				const waitForSeconds = <?php echo (int) $waitForSeconds; ?>;
+				const paramName = <?php echo wp_json_encode( $paramName, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ); ?>;
 				let waited = 0;
 
 				const waitEl = document.getElementById("wait-for-secure-login");
@@ -178,7 +178,7 @@ class Gate extends Component {
 				[
 					"response" => 400,
 					"link_text" => esc_html__( "Goto login form", 'a-little-more-secure' ),
-					"link_url" => wp_login_url(),
+					"link_url" => esc_url( wp_login_url() ),
 				]
 			);
 		}
