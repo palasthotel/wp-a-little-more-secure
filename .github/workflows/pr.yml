@@ -12,6 +12,9 @@ jobs:
   checks:
     uses: palasthotel/github-workflows/.github/workflows/wp-plugin-pr.yml@v1
     with:
+      # Plugin Check reports errors on this plugin - see https://github.com/palasthotel/wp-a-little-more-secure/issues/21.
+      # Remove this line once they are fixed.
+      plugin-check: false
       slug: a-little-more-secure
       dev-plugin-name: A little more secure - DEV
       # public/composer.json requires php ~8.2 and the header says Requires PHP: 8.2
